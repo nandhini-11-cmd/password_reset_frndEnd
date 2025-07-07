@@ -3,6 +3,8 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router";
 
+const apiUrl = import.meta.env.VITE_API_URL;
+
 const Register = () => {
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
@@ -34,7 +36,7 @@ const Register = () => {
     },
     onSubmit: async (values, { resetForm }) => {
       try {
-        const res = await axios.post("http://localhost:5000/api/auth/register", values);
+        const res = await axios.post(`${apiUrl}/api/auth/register`, values);
 
         setMessage(res.data.message);
 
@@ -90,7 +92,7 @@ const Register = () => {
           <Link to="/login" className="text-blue-600 hover:underline ml-10">
             Already have account? Login here
           </Link>
-          
+
         </form>
       </div>
     </div>

@@ -3,6 +3,8 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router";
 
+const apiUrl = import.meta.env.VITE_API_URL;
+
 const Login = () => {
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
@@ -30,7 +32,7 @@ const Login = () => {
     onSubmit: async (values, { resetForm }) =>
          {
       try {
-        const res = await axios.post("http://localhost:5000/api/auth/login", values);
+        const res = await axios.post(`${apiUrl}/api/auth/login`, values);
 
         setMessage(res.data.message || "Login successful");
 
@@ -96,7 +98,7 @@ const Login = () => {
             Forgot Password?
           </Link>
         </p>
-        
+
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import { useFormik } from "formik";
 import axios from "axios";
 import { useState } from "react";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 const ForgotPassword = () => {
   const [message, setMessage] = useState("");
@@ -21,7 +22,7 @@ const ForgotPassword = () => {
    
     onSubmit: async (values, { resetForm }) => {
       try {
-        const res = await axios.post("http://localhost:5000/api/auth/forgot-password", values);
+        const res = await axios.post(`${apiUrl}/api/auth/forgot-password`, values);
         setMessage(res.data.message);
         resetForm();
       } catch (err) {

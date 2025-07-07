@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 const ResetPassword = () => {
 
@@ -25,7 +26,7 @@ const ResetPassword = () => {
    
     onSubmit: async (values, { resetForm }) => {
       try {
-        const res = await axios.post(`http://localhost:5000/api/auth/reset-password/${token}`, values);
+        const res = await axios.post(`${apiUrl}/api/auth/reset-password/${token}`, values);
         setMessage(res.data.message);
 
         resetForm();
@@ -72,7 +73,7 @@ const ResetPassword = () => {
           <Link to="/login" className="text-blue-600 hover:underline block text-center mt-4">
             Login with new password
           </Link>
-          
+
         </form>
       </div>
     </div>
