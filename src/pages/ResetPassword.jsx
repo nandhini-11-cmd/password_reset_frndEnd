@@ -2,7 +2,7 @@ import { useParams } from "react-router";
 import { useFormik } from "formik";
 import axios from "axios";
 import { useState } from "react";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 const apiUrl = import.meta.env.VITE_API_URL;
 
 const ResetPassword = () => {

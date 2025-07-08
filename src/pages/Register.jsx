@@ -1,7 +1,7 @@
 import { useFormik } from "formik";
 import axios from "axios";
 import { useState } from "react";
-import { useNavigate, Link } from "react-router";
+import { useNavigate, Link } from "react-router-dom";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
